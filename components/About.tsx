@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section className="block" id="about">
       <div className="section-h">
-        SOBRE MÍ <span className="badge">// PERFIL</span>
+        SOBRE MÍ <span className="badge">{"// PERFIL"}</span>
       </div>
       <div className="about-wrap">
         <div className="about-text">

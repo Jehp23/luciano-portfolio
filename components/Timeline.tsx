@@ -30,7 +30,7 @@ export default function Timeline() {
   return (
     <section className="block">
       <div className="section-h">
-        EXPERIENCIA & FORMACIÓN <span className="badge">// TRAYECTORIA</span>
+        EXPERIENCIA & FORMACIÓN <span className="badge">{"// TRAYECTORIA"}</span>
       </div>
       <div className="timeline">
         {ITEMS.map(({ yr, role, desc }) => (

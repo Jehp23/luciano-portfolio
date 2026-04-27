@@ -68,7 +68,7 @@ export default function Stats() {
   return (
     <section className="block" id="stats" ref={sectionRef}>
       <div className="section-h">
-        CAPACIDADES <span className="badge">// MÉTRICAS · STACK</span>
+        CAPACIDADES <span className="badge">{"// MÉTRICAS · STACK"}</span>
       </div>
 
       <div className="kpi-grid">
