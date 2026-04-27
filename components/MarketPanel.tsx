@@ -74,6 +74,18 @@ function drawCandleChart(canvas: HTMLCanvasElement, candles: Candle[]) {
   ctx.fillText(last.toFixed(2), W - 29, yy(last) + 4);
 }
 
+function initSeries() {
+  const series: number[] = [];
+  let value = 100;
+
+  for (let i = 0; i < 160; i++) {
+    value += (Math.random() - 0.42) * 1.2;
+    series.push(value);
+  }
+
+  return series;
+}
+
 function drawLineChart(canvas: HTMLCanvasElement, series: number[]) {
   const dpr = devicePixelRatio || 1;
   const W = canvas.clientWidth;
@@ -101,7 +113,12 @@ function drawLineChart(canvas: HTMLCanvasElement, series: number[]) {
   series.forEach((_, i) => {
     const x = (i / (series.length - 1)) * W;
     const p = 100 + i * 0.06;
-    i ? ctx.lineTo(x, yy(p)) : ctx.moveTo(x, yy(p));
+    if (i === 0) {
+      ctx.moveTo(x, yy(p));
+      return;
+    }
+
+    ctx.lineTo(x, yy(p));
   });
   ctx.stroke();
   ctx.setLineDash([]);
@@ -111,18 +128,28 @@ function drawLineChart(canvas: HTMLCanvasElement, series: number[]) {
   grad.addColorStop(1, "rgba(240,165,0,0)");
   ctx.fillStyle = grad;
   ctx.beginPath();
-  series.forEach((p, i) => {
+  series.forEach((point, i) => {
     const x = (i / (series.length - 1)) * W;
-    i ? ctx.lineTo(x, yy(p)) : ctx.moveTo(x, yy(p));
+    if (i === 0) {
+      ctx.moveTo(x, yy(point));
+      return;
+    }
+
+    ctx.lineTo(x, yy(point));
   });
   ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
 
   ctx.strokeStyle = "#f0a500";
   ctx.lineWidth = 2;
   ctx.beginPath();
-  series.forEach((p, i) => {
+  series.forEach((point, i) => {
     const x = (i / (series.length - 1)) * W;
-    i ? ctx.lineTo(x, yy(p)) : ctx.moveTo(x, yy(p));
+    if (i === 0) {
+      ctx.moveTo(x, yy(point));
+      return;
+    }
+
+    ctx.lineTo(x, yy(point));
   });
   ctx.stroke();
 
@@ -148,26 +175,33 @@ function buildOrderBook(mid: number) {
 export default function MarketPanel() {
   const candleCanvasRef = useRef<HTMLCanvasElement>(null);
   const lineCanvasRef = useRef<HTMLCanvasElement>(null);
-  const candlesRef = useRef<Candle[]>(initCandles());
-  const seriesRef = useRef<number[]>((() => {
-    const s: number[] = []; let v = 100;
-    for (let i = 0; i < 160; i++) { v += (Math.random() - 0.42) * 1.2; s.push(v); }
-    return s;
-  })());
+  const candlesRef = useRef<Candle[]>([]);
+  const seriesRef = useRef<number[]>([]);
 
   const [price, setPrice] = useState("187.42");
   const [delta, setDelta] = useState({ text: "+12.84 (+7.36%)", up: true });
   const [high, setHigh] = useState("189.12");
   const [low, setLow] = useState("172.30");
-  const [orderBook, setOrderBook] = useState<ReturnType<typeof buildOrderBook> | null>(null);
+  const [orderBook, setOrderBook] = useState(() => buildOrderBook(187.42));
 
   useEffect(() => {
-    const candleCanvas = candleCanvasRef.current!;
-    const lineCanvas = lineCanvasRef.current!;
+    const candleCanvas = candleCanvasRef.current;
+    const lineCanvas = lineCanvasRef.current;
+
+    if (!candleCanvas || !lineCanvas) {
+      return;
+    }
+
+    if (candlesRef.current.length === 0) {
+      candlesRef.current = initCandles();
+    }
+
+    if (seriesRef.current.length === 0) {
+      seriesRef.current = initSeries();
+    }
 
     drawCandleChart(candleCanvas, candlesRef.current);
     drawLineChart(lineCanvas, seriesRef.current);
-    setOrderBook(buildOrderBook(187.42));
 
     const candleId = setInterval(() => {
       const last = candlesRef.current[candlesRef.current.length - 1];
@@ -198,7 +232,8 @@ export default function MarketPanel() {
     }, 800);
 
     const obId = setInterval(() => {
-      setOrderBook(buildOrderBook(parseFloat(price)));
+      const latestPrice = candlesRef.current[candlesRef.current.length - 1]?.c ?? 187.42;
+      setOrderBook(buildOrderBook(latestPrice));
     }, 1300);
 
     const resizeHandler = () => {

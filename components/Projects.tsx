@@ -54,7 +54,7 @@ export default function Projects() {
     <section className="block" id="projects">
       <div className="section-h">
         PROYECTOS & FOCO{" "}
-        <span className="badge">// QUÉ HAGO Y EN QUÉ TRABAJO</span>
+        <span className="badge">{"// QUÉ HAGO Y EN QUÉ TRABAJO"}</span>
       </div>
       <div className="cards">
         {PROJECTS.map(({ rarity, tag, title, desc, stack, stats }) => (

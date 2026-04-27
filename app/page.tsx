@@ -18,14 +18,16 @@ export default function Home() {
       <CRT />
       <Ticker />
       <Nav />
-      <Hero />
-      <About />
-      <MarketPanel />
-      <Stats />
-      <Projects />
-      <Achievements />
-      <Timeline />
-      <Contact />
+      <main className="site-main">
+        <Hero />
+        <About />
+        <MarketPanel />
+        <Stats />
+        <Projects />
+        <Achievements />
+        <Timeline />
+        <Contact />
+      </main>
       <Footer />
       <KonamiEgg />
     </>

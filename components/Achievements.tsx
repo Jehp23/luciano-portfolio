@@ -11,7 +11,7 @@ export default function Achievements() {
   return (
     <section className="block" id="achievements">
       <div className="section-h">
-        DIFERENCIALES <span className="badge">// LO QUE ME DEFINE</span>
+        DIFERENCIALES <span className="badge">{"// LO QUE ME DEFINE"}</span>
       </div>
       <div className="achievements">
         {ITEMS.map(({ medal, variant, title, desc }) => (

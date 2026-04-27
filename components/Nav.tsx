@@ -27,18 +27,20 @@ export default function Nav() {
 
   return (
     <nav className="main-nav">
-      <div className="logo">
-        <span className="dot" />
-        LUCIANO.LAZARTE
+      <div className="main-nav-inner">
+        <div className="logo">
+          <span className="dot" />
+          LUCIANO.LAZARTE
+        </div>
+        <ul>
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <a href={href}>{label}</a>
+            </li>
+          ))}
+        </ul>
+        <div className="status">ONLINE · {clock}</div>
       </div>
-      <ul>
-        {links.map(({ href, label }) => (
-          <li key={href}>
-            <a href={href}>{label}</a>
-          </li>
-        ))}
-      </ul>
-      <div className="status">ONLINE · {clock}</div>
     </nav>
   );
 }

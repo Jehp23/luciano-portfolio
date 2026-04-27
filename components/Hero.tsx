@@ -53,23 +53,27 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="grid-bg" />
-      <div className="hero-tag">SALTA · ARGENTINA  //  AVAILABLE FOR NEW OPPORTUNITIES</div>
-      <h1 className="hero-name glitch" data-text="LUCIANO LAZARTE">LUCIANO LAZARTE</h1>
-      <div className="hero-sub">
-        &gt; <span ref={typedRef} />
-        <span className="cursor" />
-      </div>
-      <div className="hero-cta">
-        <a className="btn" href="#projects">VER PROYECTOS</a>
-        <a className="btn alt" href="#contact">CONTACTO</a>
-      </div>
-      <div className="hero-meta">
-        {META.map(({ label, val }) => (
-          <div key={label} className="cell">
-            <span className="label">{label}</span>
-            <span className="val">{val}</span>
-          </div>
-        ))}
+      <div className="hero-inner">
+        <div className="hero-tag">SALTA · ARGENTINA  //  AVAILABLE FOR NEW OPPORTUNITIES</div>
+        <h1 className="hero-name glitch" data-text="LUCIANO LAZARTE">
+          LUCIANO LAZARTE
+        </h1>
+        <div className="hero-sub">
+          &gt; <span ref={typedRef} />
+          <span className="cursor" />
+        </div>
+        <div className="hero-cta">
+          <a className="btn" href="#projects">VER PROYECTOS</a>
+          <a className="btn alt" href="#contact">CONTACTO</a>
+        </div>
+        <div className="hero-meta">
+          {META.map(({ label, val }) => (
+            <div key={label} className="cell">
+              <span className="label">{label}</span>
+              <span className="val">{val}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
