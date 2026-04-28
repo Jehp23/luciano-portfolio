@@ -3,16 +3,16 @@
 import { useEffect, useRef } from "react";
 
 const PHRASES = [
-  "AI Developer · Data Analyst · Estudiante de Ing. Informática",
-  "Construyendo el broker de PonchoCapital desde adentro.",
-  "Apasionado por los mercados de capitales y el desarrollo con IA.",
+  "Builder enfocado en fintech, sistemas e IA aplicada.",
+  "Diseño productos reales con mentalidad de negocio.",
+  "Automatización, herramientas financieras y ejecución con criterio.",
 ];
 
 const META = [
-  { label: "ROL", val: "AI Developer" },
-  { label: "FORMACIÓN", val: "Ing. Informática" },
-  { label: "FOCO", val: "Fintech · Mercado de Capitales" },
-  { label: "STACK", val: "Python · TypeScript · IA" },
+  { label: "ROL", val: "Fintech Builder" },
+  { label: "FOCO", val: "Producto · Sistemas · IA" },
+  { label: "DOMINIO", val: "Fintech · Herramientas Financieras" },
+  { label: "STACK", val: "Python · TypeScript · Automatización" },
   { label: "DISPONIBILIDAD", val: "Abierto a oportunidades" },
 ];
 
@@ -55,16 +55,19 @@ export default function Hero() {
       <div className="grid-bg" />
       <div className="hero-inner">
         <div className="hero-tag">SALTA · ARGENTINA  //  AVAILABLE FOR NEW OPPORTUNITIES</div>
-        <h1 className="hero-name glitch" data-text="LUCIANO LAZARTE">
-          LUCIANO LAZARTE
+        <h1 className="hero-name glitch" data-text="FINTECH BUILDER">
+          FINTECH BUILDER
         </h1>
+        <p className="hero-lead">
+          Diseño y construyo sistemas y productos con foco en fintech, automatización e IA aplicada.
+        </p>
         <div className="hero-sub">
           &gt; <span ref={typedRef} />
           <span className="cursor" />
         </div>
         <div className="hero-cta">
           <a className="btn" href="#projects">VER PROYECTOS</a>
-          <a className="btn alt" href="#contact">CONTACTO</a>
+          <a className="btn alt" href="#contact">CONTACTARME</a>
         </div>
         <div className="hero-meta">
           {META.map(({ label, val }) => (
