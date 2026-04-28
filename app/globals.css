@@ -132,8 +132,17 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px; letter-spacing: 3px; flex-shrink: 0;
   box-shadow: 0 0 18px rgba(255,176,0,0.55), inset 0 0 8px rgba(0,0,0,0.25);
 }
+.ticker-viewport {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
 .ticker-track {
   display: flex; gap: 38px; white-space: nowrap; padding-left: 24px;
+  width: max-content;
   animation: scroll-ticker 60s linear infinite;
   font-size: 13px; letter-spacing: 1px;
 }
@@ -258,7 +267,7 @@ nav.main-nav .status { color: var(--dim); font-size: 11px; }
 }
 .btn.alt { color: var(--green); border-color: var(--green); }
 .btn.alt:hover { background: var(--green); color: #000; box-shadow: 0 0 24px var(--green-glow), inset 0 0 18px rgba(255,255,255,0.2); }
-.hero-meta { margin-top: 46px; display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 16px; max-width: 920px; }
+.hero-meta { margin-top: 46px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; max-width: 1120px; }
 .hero-meta .cell { border-left: 2px solid var(--amber); padding: 6px 14px; font-size: 11px; letter-spacing: 1px; box-shadow: -2px 0 12px -4px var(--amber-glow); }
 .hero-meta .cell .label { color: var(--dim); display: block; margin-bottom: 4px; }
 .hero-meta .cell .val { color: var(--amber); font-size: 14px; font-weight: 700; text-shadow: 0 0 6px var(--amber-glow); }
@@ -394,6 +403,10 @@ footer { border-top: 1px solid var(--border); padding: 24px var(--section-gutter
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
+  .hero-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .main-nav-inner {
     flex-wrap: wrap;
     justify-content: center;

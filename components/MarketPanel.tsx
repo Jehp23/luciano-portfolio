@@ -6,6 +6,24 @@ interface Candle {
   o: number; h: number; l: number; c: number;
 }
 
+interface OrderLevel {
+  p: number;
+  s: number;
+}
+
+interface OrderBook {
+  asks: OrderLevel[];
+  bids: OrderLevel[];
+}
+
+const INTEGER_FORMATTER = new Intl.NumberFormat("en-US", {
+  maximumFractionDigits: 0,
+});
+
+function formatInteger(value: number) {
+  return INTEGER_FORMATTER.format(value);
+}
+
 function initCandles(): Candle[] {
   let p = 170;
   const arr: Candle[] = [];
@@ -103,7 +121,8 @@ function drawLineChart(canvas: HTMLCanvasElement, series: number[]) {
     ctx.beginPath(); ctx.moveTo(0, i * H / 4); ctx.lineTo(W, i * H / 4); ctx.stroke();
   }
 
-  const max = Math.max(...series), min = Math.min(...series);
+  const max = Math.max(...series);
+  const min = Math.min(...series);
   const yy = (v: number) => H - ((v - min) / (max - min || 1)) * H * 0.85 - H * 0.05;
 
   ctx.strokeStyle = "#2a4060";
@@ -153,7 +172,8 @@ function drawLineChart(canvas: HTMLCanvasElement, series: number[]) {
   });
   ctx.stroke();
 
-  const lx = W, ly = yy(series[series.length - 1]);
+  const lx = W;
+  const ly = yy(series[series.length - 1]);
   ctx.fillStyle = "#f0a500";
   ctx.beginPath(); ctx.arc(lx, ly, 4, 0, Math.PI * 2); ctx.fill();
   ctx.strokeStyle = "rgba(240,165,0,0.35)";
@@ -162,13 +182,31 @@ function drawLineChart(canvas: HTMLCanvasElement, series: number[]) {
   ctx.stroke();
 }
 
-function buildOrderBook(mid: number) {
-  const asks: { p: number; s: number }[] = [];
-  const bids: { p: number; s: number }[] = [];
+function seededNoise(seed: number) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+function buildOrderBook(mid: number): OrderBook {
+  const asks: OrderLevel[] = [];
+  const bids: OrderLevel[] = [];
+
   for (let i = 0; i < 8; i++) {
-    asks.push({ p: mid + 0.05 + i * 0.18 + Math.random() * 0.05, s: Math.floor(Math.random() * 4500 + 200) });
-    bids.push({ p: mid - 0.05 - i * 0.18 - Math.random() * 0.05, s: Math.floor(Math.random() * 4500 + 200) });
+    const askNoise = seededNoise(mid * 10 + i + 1);
+    const bidNoise = seededNoise(mid * 20 + i + 1);
+    const askSizeNoise = seededNoise(mid * 30 + i + 1);
+    const bidSizeNoise = seededNoise(mid * 40 + i + 1);
+
+    asks.push({
+      p: mid + 0.05 + i * 0.18 + askNoise * 0.05,
+      s: Math.floor(askSizeNoise * 4500 + 200),
+    });
+    bids.push({
+      p: mid - 0.05 - i * 0.18 - bidNoise * 0.05,
+      s: Math.floor(bidSizeNoise * 4500 + 200),
+    });
   }
+
   return { asks, bids };
 }
 
@@ -182,7 +220,7 @@ export default function MarketPanel() {
   const [delta, setDelta] = useState({ text: "+12.84 (+7.36%)", up: true });
   const [high, setHigh] = useState("189.12");
   const [low, setLow] = useState("172.30");
-  const [orderBook, setOrderBook] = useState(() => buildOrderBook(187.42));
+  const [orderBook, setOrderBook] = useState<OrderBook>(() => buildOrderBook(187.42));
 
   useEffect(() => {
     const candleCanvas = candleCanvasRef.current;
@@ -286,7 +324,7 @@ export default function MarketPanel() {
             <span>DEPTH 8</span>
           </div>
           <div className="order-book">
-            {orderBook && (() => {
+            {(() => {
               const { asks, bids } = orderBook;
               const maxS = Math.max(...asks.map((a) => a.s), ...bids.map((b) => b.s));
               const spread = asks[asks.length - 1]?.p - bids[0]?.p;
@@ -295,8 +333,8 @@ export default function MarketPanel() {
                   {[...asks].reverse().map((a, i) => (
                     <div key={`ask-${i}`} className="ob-row ask">
                       <span>{a.p.toFixed(2)}</span>
-                      <span>{a.s.toLocaleString()}</span>
-                      <span>{(a.p * a.s).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                      <span>{formatInteger(a.s)}</span>
+                      <span>{formatInteger(a.p * a.s)}</span>
                       <div className="ob-bar" style={{ width: `${(a.s / maxS) * 100}%` }} />
                     </div>
                   ))}
@@ -304,8 +342,8 @@ export default function MarketPanel() {
                   {bids.map((b, i) => (
                     <div key={`bid-${i}`} className="ob-row bid">
                       <span>{b.p.toFixed(2)}</span>
-                      <span>{b.s.toLocaleString()}</span>
-                      <span>{(b.p * b.s).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                      <span>{formatInteger(b.s)}</span>
+                      <span>{formatInteger(b.p * b.s)}</span>
                       <div className="ob-bar" style={{ width: `${(b.s / maxS) * 100}%` }} />
                     </div>
                   ))}

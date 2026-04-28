@@ -25,10 +25,12 @@ export default function Ticker() {
   return (
     <div className="ticker">
       <div className="ticker-label">LIVE FEED</div>
-      <div className="ticker-track">
-        {items.map(([sym, price, delta], i) => (
-          <TickerItem key={`${sym}-${i}`} sym={sym} price={price} delta={delta} />
-        ))}
+      <div className="ticker-viewport">
+        <div className="ticker-track">
+          {items.map(([sym, price, delta], i) => (
+            <TickerItem key={`${sym}-${i}`} sym={sym} price={price} delta={delta} />
+          ))}
+        </div>
       </div>
     </div>
   );
