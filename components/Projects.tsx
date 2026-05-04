@@ -12,11 +12,11 @@ const PROJECTS = [
     rarity: "epic",
     tag: "AI · BLOCKCHAIN · FINTECH",
     title: "INK · Smart Contract Risk Intelligence",
-    desc: "Analizador de riesgo de smart contracts en Avalanche C-Chain. Ingresás una dirección, el sistema puntúa el contrato del 0 al 100 con un motor determinístico propio y genera una explicación en lenguaje natural usando Llama 3.3 70B. Sin wallet, bilingüe, con caché en MongoDB.",
-    stack: ["Next.js", "Node.js", "Groq (Llama 3.3 70B)", "Avalanche", "MongoDB"],
+    desc: "Analizador de riesgo de smart contracts en Avalanche C-Chain. Ingresás una dirección, el sistema puntúa el contrato del 0 al 100 con un motor determinístico propio y genera una explicación en lenguaje natural usando Llama 3.3 70B. Sin wallet, bilingüe, con caché en PostgreSQL.",
+    stack: ["Next.js", "Node.js", "Groq (Llama 3.3 70B)", "Avalanche", "Neon"],
     stats: [{ s: "TIPO", v: "LIVE PRODUCT" }, { s: "IA", v: "LLAMA 3.3 70B" }],
     links: [
-      { label: "Demo", href: "https://ink-three-iota.vercel.app" },
+      { label: "Demo", href: "https://inkrisk.vercel.app" },
       { label: "GitHub", href: "https://github.com/Jehp23/ink-risk-intelligence" },
     ],
   },
@@ -28,6 +28,7 @@ const PROJECTS = [
     stack: ["FastAPI", "Python", "Next.js", "TypeScript", "BYMA API"],
     stats: [{ s: "MÓDULOS", v: "8 ROUTERS" }, { s: "MERCADO", v: "ARG + GLOBAL" }],
     links: [
+      { label: "Demo", href: "https://quantlab2.vercel.app" },
       { label: "Backend", href: "https://github.com/Jehp23/quantlab-back" },
       { label: "Frontend", href: "https://github.com/Jehp23/quantlab-front" },
     ],
