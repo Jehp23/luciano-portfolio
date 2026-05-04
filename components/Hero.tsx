@@ -3,16 +3,16 @@
 import { useEffect, useRef } from "react";
 
 const PHRASES = [
-  "Builder enfocado en fintech, sistemas e IA aplicada.",
-  "Diseño productos reales con mentalidad de negocio.",
-  "Automatización, herramientas financieras y ejecución con criterio.",
+  "Desarrollo software con foco en fintech e IA aplicada.",
+  "Trabajo en el mercado de capitales desde adentro.",
+  "Python, TypeScript y criterio técnico sobre cada decisión.",
 ];
 
 const META = [
-  { label: "ROL", val: "Fintech Builder" },
-  { label: "FOCO", val: "Producto · Sistemas · IA" },
-  { label: "DOMINIO", val: "Fintech · Herramientas Financieras" },
-  { label: "STACK", val: "Python · TypeScript · Automatización" },
+  { label: "ROL", val: "Desarrollador · Fintech & IA" },
+  { label: "FOCO", val: "Fintech · Data Science · IA" },
+  { label: "STACK", val: "Python · TypeScript · FastAPI" },
+  { label: "UBICACIÓN", val: "Salta, Argentina" },
   { label: "DISPONIBILIDAD", val: "Abierto a oportunidades" },
 ];
 
@@ -54,12 +54,12 @@ export default function Hero() {
     <section className="hero">
       <div className="grid-bg" />
       <div className="hero-inner">
-        <div className="hero-tag">SALTA · ARGENTINA  //  AVAILABLE FOR NEW OPPORTUNITIES</div>
-        <h1 className="hero-name glitch" data-text="FINTECH BUILDER">
-          FINTECH BUILDER
+        <div className="hero-tag">SALTA · ARGENTINA  //  DISPONIBLE PARA NUEVAS OPORTUNIDADES</div>
+        <h1 className="hero-name glitch" data-text="LUCIANO LAZARTE">
+          LUCIANO LAZARTE
         </h1>
         <p className="hero-lead">
-          Diseño y construyo sistemas y productos con foco en fintech, automatización e IA aplicada.
+          Desarrollador con foco en fintech e inteligencia artificial aplicada. Trabajo en el mercado de capitales desde adentro.
         </p>
         <div className="hero-sub">
           &gt; <span ref={typedRef} />

@@ -337,6 +337,52 @@ canvas { display: block; width: 100%; background: #04050a; border: 1px solid var
 .ob-row span { position: relative; z-index: 1; }
 .ob-spread { text-align: center; color: var(--amber); font-weight: 700; border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); padding: 6px 0; margin: 6px 0; font-size: 11px; letter-spacing: 2px; text-shadow: 0 0 6px var(--amber-glow); }
 
+/* ============ INDICATORS ============ */
+.indicators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(130px, 18vw, 200px), 1fr));
+  gap: 12px;
+}
+.indicator-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.indicator-card::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 10px; height: 10px;
+  border-top: 2px solid var(--amber);
+  border-left: 2px solid var(--amber);
+}
+.indicator-card:hover { border-color: var(--border-hi); }
+.ic-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--dim);
+  margin-bottom: 8px;
+}
+.ic-value {
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  color: var(--text-hi);
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+.ic-change {
+  font-size: 12px;
+  font-weight: 600;
+}
+.ic-sub {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--dim);
+}
+
 /* ============ KPIs ============ */
 .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(160px, 22vw, 240px), 1fr)); gap: 14px; margin-bottom: 32px; }
 .kpi { background: var(--panel); border: 1px solid var(--border); padding: 18px; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
@@ -381,6 +427,9 @@ canvas { display: block; width: 100%; background: #04050a; border: 1px solid var
 .card .stats-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; border-top: 1px dashed var(--border); padding-top: 10px; font-size: 11px; margin-top: auto; }
 .card .stats-row .s { color: var(--dim); }
 .card .stats-row .v { color: var(--text-hi); font-weight: 700; }
+.card .card-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
+.card .card-links a { font-size: 10px; letter-spacing: 1.5px; padding: 4px 10px; border: 1px solid var(--rcolor); color: var(--rcolor); text-transform: uppercase; transition: background 0.18s, color 0.18s, box-shadow 0.18s; border-radius: 2px; }
+.card .card-links a:hover { background: var(--rcolor); color: #000; box-shadow: 0 0 12px var(--rcolor); }
 
 /* ============ ACHIEVEMENTS ============ */
 .achievements { display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(260px, 30vw, 320px), 1fr)); gap: 14px; }
@@ -401,6 +450,8 @@ canvas { display: block; width: 100%; background: #04050a; border: 1px solid var
 .tl-item .yr { color: var(--green); font-weight: 700; font-size: 12px; letter-spacing: 3px; margin-bottom: 6px; text-transform: uppercase; text-shadow: 0 0 6px var(--green-glow); }
 .tl-item .role { font-size: 14px; color: var(--text-hi); font-weight: 700; margin-bottom: 4px; }
 .tl-item .desc { font-size: 12px; color: var(--text); line-height: 1.6; }
+.tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.tl-tags span { font-size: 10px; letter-spacing: 1px; padding: 3px 8px; border: 1px solid var(--border-hi); color: var(--dim); border-radius: 2px; }
 
 /* ============ CONTACT ============ */
 .contact { text-align: center; padding: var(--section-space) var(--section-gutter); border-top: 1px dashed var(--border); background: radial-gradient(ellipse at center, rgba(255,176,0,0.08), transparent 70%); }

@@ -13,8 +13,8 @@ const INFO_CARDS = [
     label: "BUSCANDO",
     items: [
       "Roles en fintech / mercado de capitales",
-      "Proyectos donde IA + finanzas convergen",
-      "Equipos serios que valoren fundamentos",
+      "Proyectos donde IA y finanzas convergen",
+      "Equipos donde los fundamentos importen",
     ],
   },
   {
@@ -38,22 +38,20 @@ export default function About() {
         <div className="about-top">
           <div className="about-text">
             <p>
-              Soy estudiante de <strong>Ingeniería Informática</strong> y desarrollador con foco en
-              <strong> inteligencia artificial</strong> aplicada a productos financieros. Me apasionan
-              los mercados de capitales: invierto, sigo el mercado y lo entiendo desde adentro — eso
-              cambia cómo construyo software para finanzas.
+              Soy estudiante de <strong>Ingeniería Informática</strong> y desarrollador enfocado en
+              fintech e <strong>inteligencia artificial aplicada</strong>. Invierto en el mercado de
+              capitales desde hace algunos años — eso me da contexto real sobre qué problemas vale
+              la pena resolver con software.
             </p>
             <p>
-              Actualmente trabajo en <strong>PonchoCapital</strong>, donde colaboro en la construcción
-              de las plataformas web del broker. Combino mi formación en ingeniería con cursos
-              especializados en <strong>Data Science y Data Analytics</strong> para resolver problemas
-              que la mayoría de los developers no llega a entender — porque no hablan el lenguaje del
-              trading.
+              Actualmente trabajo en <strong>PonchoCapital</strong>, donde colaboro en el desarrollo
+              de las plataformas web del broker. Combino esa experiencia con formación en
+              <strong> Data Science y Data Analytics</strong> para construir herramientas que conectan
+              análisis de datos con decisiones financieras concretas.
             </p>
             <p>
-              Me defino como <strong>AI Developer, no vibecoder</strong>: dirijo a la IA con criterio
-              técnico, entiendo lo que ejecuta y por qué. La IA es la herramienta; las decisiones de
-              arquitectura, modelo y producto son mías.
+              Uso <strong>IA como herramienta de desarrollo</strong>, con criterio técnico sobre cada
+              decisión de arquitectura y modelo. Los proyectos que muestro acá los construí y los uso yo mismo.
             </p>
           </div>
 
@@ -70,7 +68,7 @@ export default function About() {
                   priority
                 />
               </div>
-              <p className="about-photo-note">Presencia sutil, perfil claro, foco intacto.</p>
+              <p className="about-photo-note">Luciano Lazarte · Salta, Argentina</p>
             </div>
           </aside>
         </div>
