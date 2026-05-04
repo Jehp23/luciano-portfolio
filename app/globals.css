@@ -596,80 +596,56 @@ footer { border-top: 1px solid var(--border); padding: 24px var(--section-gutter
 }
 
 @media (max-width: 640px) {
-  .ticker {
-    height: 30px;
-  }
-
-  .ticker-label {
-    padding: 0 10px;
-    letter-spacing: 2px;
-    font-size: 10px;
-  }
-
+  .ticker { height: 30px; }
+  .ticker-label { padding: 0 10px; letter-spacing: 2px; font-size: 10px; }
   .ticker-track { font-size: 11px; gap: 24px; padding-left: 16px; }
 
-  nav.main-nav {
-    padding-block: 12px;
-  }
+  /* Nav */
+  nav.main-nav { padding-block: 12px; }
+  nav.main-nav .status { display: none; } /* reloj ocupa espacio valioso en mobile */
 
+  /* Hero — evitar overflow del texto largo */
   .hero-tag {
-    font-size: 11px;
-    letter-spacing: 2px;
-    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    gap: 6px;
+    flex-wrap: wrap;
+    white-space: normal;
   }
+  .hero-tag::before { width: 20px; }
 
-  .hero-tag::before {
-    width: 24px;
-  }
-
+  /* Hero name — reducir para que "LUCIANO LAZARTE" no desborde en 375px */
   .hero-name {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
     letter-spacing: -1px;
   }
 
-  .hero-sub {
-    min-height: 3em;
-  }
+  .hero-lead { font-size: 13px; }
+  .hero-sub { min-height: 3em; }
+  .hero-meta { grid-template-columns: 1fr; }
 
-  .hero-meta {
-    grid-template-columns: 1fr;
-  }
+  /* Sections */
+  .section-h { flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 28px; }
+  .section-h .badge { margin-left: auto; width: auto; }
 
-  .section-h {
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 28px;
-  }
+  /* Projects */
+  .card .stats-row { grid-template-columns: 1fr; }
 
-  .section-h .badge {
-    margin-left: auto;
-    width: auto;
-  }
+  /* Timeline */
+  .timeline { padding-left: 24px; }
+  .tl-item::before { left: -24px; }
 
-  .card .stats-row {
-    grid-template-columns: 1fr;
-  }
+  /* Contact */
+  .blink-cta { white-space: normal; font-size: 11px; letter-spacing: 2px; }
+  .contact .ctas { flex-direction: column; width: 100%; }
+  .contact .ctas .btn { width: 100%; }
 
-  .timeline {
-    padding-left: 24px;
-  }
+  /* Footer */
+  .footer-inner { flex-direction: column; }
 
-  .tl-item::before {
-    left: -24px;
-  }
-
-  .contact .ctas {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .contact .ctas .btn {
-    width: 100%;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-  }
+  /* Optimizer modal — fullscreen en mobile */
+  .opt-overlay { padding: 0; align-items: flex-start; }
+  .opt-modal-inner { width: 100%; min-height: 100dvh; border: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
