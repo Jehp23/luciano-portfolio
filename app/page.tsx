@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Stats from "@/components/Stats";
+import GitHubActivity from "@/components/GitHubActivity";
 import OptimizerCTA from "@/components/OptimizerCTA";
 import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <About />
         <Stats />
+        <GitHubActivity />
         <Projects />
         <Timeline />
         <Contact />

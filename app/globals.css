@@ -539,6 +539,35 @@ canvas { display: block; width: 100%; }
 .tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
 .tl-tags span { font-size: 10px; letter-spacing: 1px; padding: 3px 8px; border: 1px solid var(--border-hi); color: var(--dim); border-radius: 2px; }
 
+/* ============ GITHUB ACTIVITY ============ */
+.gh-grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; align-items: start; }
+@media (max-width: 900px) { .gh-grid { grid-template-columns: 1fr; } }
+
+.gh-heatmap-wrap { background: var(--panel); border: 1px solid var(--border); padding: 18px 20px; }
+.gh-heatmap-label { font-size: 10px; letter-spacing: 2px; color: var(--dim); margin-bottom: 14px; }
+.gh-heatmap-img { width: 100%; overflow: hidden; }
+.gh-heatmap-meta { display: flex; gap: 10px; font-size: 11px; color: var(--dim-2); margin-top: 10px; letter-spacing: 1px; }
+
+.gh-right { display: flex; flex-direction: column; gap: 12px; }
+.gh-card { background: var(--panel); border: 1px solid var(--border); padding: 16px 18px; }
+.gh-card-label { font-size: 10px; letter-spacing: 2px; color: var(--dim); margin-bottom: 14px; }
+
+.gh-lang-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12px; }
+.gh-lang-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.gh-lang-name { width: 100px; color: var(--text); flex-shrink: 0; }
+.gh-lang-bar-wrap { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.gh-lang-bar-fill { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+.gh-lang-pct { width: 32px; text-align: right; color: var(--dim); font-size: 11px; flex-shrink: 0; }
+
+.gh-push-row { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.gh-push-row:last-child { border-bottom: none; }
+.gh-push-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--up); flex-shrink: 0; margin-top: 5px; box-shadow: 0 0 6px var(--up); }
+.gh-push-info { flex: 1; min-width: 0; }
+.gh-push-repo { display: block; font-size: 12px; color: var(--amber); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gh-push-msg { display: block; font-size: 10px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+.gh-push-date { font-size: 10px; color: var(--dim-2); flex-shrink: 0; padding-top: 3px; }
+.gh-skeleton { opacity: 0.4; }
+
 /* ============ CONTACT ============ */
 .contact { text-align: center; padding: var(--section-space) var(--section-gutter); border-top: 1px dashed var(--border); background: radial-gradient(ellipse at center, rgba(255,176,0,0.08), transparent 70%); }
 .contact-inner { width: min(100%, 880px); margin: 0 auto; }
