@@ -13,7 +13,7 @@ export default function Contact() {
           <a className="btn alt" href="https://github.com/Jehp23" target="_blank" rel="noopener noreferrer">GITHUB</a>
           <a className="btn" href="https://www.linkedin.com/in/lucianolazarte23/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
         </div>
-        <div className="blink-cta">DISPONIBLE PARA NUEVOS PROYECTOS · Q2 2026</div>
+        <div className="blink-cta">DISPONIBLE PARA NUEVOS PROYECTOS · ACTUALMENTE ACTIVO</div>
       </div>
     </section>
   );

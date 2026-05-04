@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 const links = [
   { href: "#about", label: "PERFIL" },
-  { href: "#market", label: "PERFORMANCE" },
-  { href: "#stats", label: "CAPACIDADES" },
+  { href: "#stats", label: "EN NÚMEROS" },
   { href: "#projects", label: "PROYECTOS" },
-  { href: "#achievements", label: "RECONOCIMIENTOS" },
+  { href: "#timeline", label: "TRAYECTORIA" },
+  { href: "#optimizer-cta", label: "OPTIMIZER" },
   { href: "#contact", label: "CONTACTO" },
 ];
 

@@ -16,12 +16,12 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "Luciano Lazarte · Quant Developer / Data Engineer",
+  title: "Luciano Lazarte · Desarrollador Fintech & IA",
   description:
-    "Portfolio de Luciano Lazarte — Quant Developer, Data Engineer y Product Builder especializado en fintech y mercados financieros.",
+    "Portfolio de Luciano Lazarte — desarrollador con foco en fintech e inteligencia artificial aplicada. AI Developer en PonchoCapital. Salta, Argentina.",
   openGraph: {
-    title: "Luciano Lazarte · Quant Developer",
-    description: "Finanzas + datos + producto. Basado en Salta, Argentina.",
+    title: "Luciano Lazarte · Desarrollador Fintech & IA",
+    description: "Desarrollador con foco en fintech e IA aplicada. AI Developer en PonchoCapital. Salta, Argentina.",
     type: "website",
   },
 };
