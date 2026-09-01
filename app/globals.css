@@ -109,20 +109,20 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
   z-index: 80;
   pointer-events: none;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--develop) 22%,
-    #00dfd8 38%,
+    var(--develop) 18%,
+    #00dfd8 36%,
     var(--preview) 52%,
     #ff0080 68%,
     #f9cb28 84%,
     transparent 100%
   );
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .wrap {
