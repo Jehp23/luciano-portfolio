@@ -3,6 +3,11 @@ import { site } from "@/lib/site";
 export default function Hero() {
   return (
     <section className="hero" id="top">
+      <div className="hero-mesh" aria-hidden="true">
+        <span className="orb orb-develop" />
+        <span className="orb orb-preview" />
+        <span className="orb orb-ship" />
+      </div>
       <div className="wrap hero-inner">
         <h1 className="hero-name">
           <span>Luciano</span>

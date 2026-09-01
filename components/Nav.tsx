@@ -22,7 +22,10 @@ export default function Nav() {
           ))}
         </ul>
         <div className="nav-aside">
-          <span className="nav-avail">Open to remote</span>
+          <span className="nav-avail">
+            <span className="status-dot" aria-hidden="true" />
+            Open to remote
+          </span>
           <a href={`mailto:${site.email}`}>Email</a>
         </div>
       </div>

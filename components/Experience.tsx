@@ -8,7 +8,11 @@ export default function Experience() {
           <h2>Experience</h2>
         </div>
         {experience.map((job) => (
-          <article key={job.company} className={job.lead ? "job" : "job secondary"}>
+          <article
+            key={job.company}
+            data-reveal
+            className={job.lead ? "job" : "job secondary"}
+          >
             <header className="job-head">
               <div>
                 <h3 className="job-role">
