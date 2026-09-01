@@ -16,8 +16,33 @@ export function createOgImage(size: { width: number; height: number }) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          position: "relative",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            width: 420,
+            height: 420,
+            borderRadius: 999,
+            background: "rgba(0,124,240,0.22)",
+            top: -80,
+            left: 80,
+            filter: "blur(60px)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: 360,
+            height: 360,
+            borderRadius: 999,
+            background: "rgba(121,40,202,0.2)",
+            top: 80,
+            right: 40,
+            filter: "blur(60px)",
+          }}
+        />
         <div
           style={{
             color: "#ffffff",

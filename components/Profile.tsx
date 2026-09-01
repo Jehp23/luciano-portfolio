@@ -7,7 +7,7 @@ export default function Profile() {
         <div className="section-head">
           <h2>Education & skills</h2>
         </div>
-        <div className="profile-grid">
+        <div className="profile-grid" data-reveal>
           <div className="profile-block">
             <h3>Education</h3>
             {education.map((item) => (
