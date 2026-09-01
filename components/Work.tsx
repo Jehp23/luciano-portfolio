@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+import SpotlightCard from "@/components/SpotlightCard";
 import { work } from "@/lib/site";
 
 export default function Work() {
@@ -8,8 +10,12 @@ export default function Work() {
           <h2>Selected work</h2>
         </div>
         <div className="work-grid">
-          {work.map((project) => (
-            <article key={project.name} className="card">
+          {work.map((project, index) => (
+            <SpotlightCard
+              key={project.name}
+              className="card"
+              style={{ "--reveal-delay": `${index * 70}ms` } as CSSProperties}
+            >
               <div className="card-top">
                 <h3 className="card-name">{project.name}</h3>
                 {project.tag ? <span className="card-tag">{project.tag}</span> : null}
@@ -41,7 +47,7 @@ export default function Work() {
                   </a>
                 ) : null}
               </div>
-            </article>
+            </SpotlightCard>
           ))}
         </div>
       </div>
