@@ -1,37 +1,28 @@
-import CRT from "@/components/CRT";
-import Ticker from "@/components/Ticker";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Stats from "@/components/Stats";
-import GitHubActivity from "@/components/GitHubActivity";
-import OptimizerCTA from "@/components/OptimizerCTA";
-import Projects from "@/components/Projects";
-import Timeline from "@/components/Timeline";
+import Work from "@/components/Work";
+import Experience from "@/components/Experience";
+import Profile from "@/components/Profile";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import KonamiEgg from "@/components/KonamiEgg";
-import RevealObserver from "@/components/RevealObserver";
 
 export default function Home() {
   return (
-    <>
-      <CRT />
-      <Ticker />
+    <div className="site">
+      <div className="page-glow" aria-hidden="true" />
+      <div className="page-grid" aria-hidden="true" />
+      <a className="skip-link" href="#work">
+        Skip to selected work
+      </a>
       <Nav />
-      <main className="site-main">
+      <main>
         <Hero />
-        <About />
-        <Stats />
-        <GitHubActivity />
-        <Projects />
-        <Timeline />
+        <Work />
+        <Experience />
+        <Profile />
         <Contact />
-        <OptimizerCTA />
       </main>
       <Footer />
-      <KonamiEgg />
-      <RevealObserver />
-    </>
+    </div>
   );
 }

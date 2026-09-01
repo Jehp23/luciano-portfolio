@@ -1,45 +1,30 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { site } from "@/lib/site";
 
 const links = [
-  { href: "#about", label: "PERFIL" },
-  { href: "#stats", label: "EN NÚMEROS" },
-  { href: "#projects", label: "PROYECTOS" },
-  { href: "#timeline", label: "TRAYECTORIA" },
-  { href: "#optimizer-cta", label: "OPTIMIZER" },
-  { href: "#contact", label: "CONTACTO" },
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Nav() {
-  const [clock, setClock] = useState("--:--:--");
-
-  useEffect(() => {
-    const tick = () => {
-      const d = new Date();
-      const pad = (n: number) => String(n).padStart(2, "0");
-      setClock(`${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`);
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
-    <nav className="main-nav">
-      <div className="main-nav-inner">
-        <div className="logo">
-          <span className="dot" />
-          LUCIANO.LAZARTE
-        </div>
-        <ul>
+    <nav className="nav">
+      <div className="wrap nav-inner">
+        <a className="nav-brand" href="#top">
+          <span className="nav-mark">LL</span>
+          <span>{site.name}</span>
+        </a>
+        <ul className="nav-links">
           {links.map(({ href, label }) => (
             <li key={href}>
               <a href={href}>{label}</a>
             </li>
           ))}
         </ul>
-        <div className="status">ONLINE · {clock}</div>
+        <div className="nav-aside">
+          <span className="nav-avail">Open to remote</span>
+          <a href={`mailto:${site.email}`}>Email</a>
+        </div>
       </div>
     </nav>
   );

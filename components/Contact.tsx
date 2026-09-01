@@ -1,19 +1,35 @@
+import { site } from "@/lib/site";
+
 export default function Contact() {
   return (
-    <section className="contact" id="contact">
-      <div className="contact-inner">
-        <h2>{"// HABLEMOS"}</h2>
-        <p className="desc">
-          Si estás construyendo algo en la intersección de <strong>IA, finanzas y producto</strong> —
-          y querés a alguien que entienda los tres y se tome en serio los fundamentos — escribime.
-          Respondo en menos de 24 horas.
-        </p>
-        <div className="ctas">
-          <a className="btn" href="mailto:lulazarte23@gmail.com">EMAIL</a>
-          <a className="btn alt" href="https://github.com/Jehp23" target="_blank" rel="noopener noreferrer">GITHUB</a>
-          <a className="btn" href="https://www.linkedin.com/in/lucianolazarte23/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+    <section className="section" id="contact">
+      <div className="wrap">
+        <div className="section-head">
+          <h2>Contact</h2>
         </div>
-        <div className="blink-cta">DISPONIBLE PARA NUEVOS PROYECTOS · ACTUALMENTE ACTIVO</div>
+        <p className="contact-copy">
+          Open to full-remote roles. Fintech product — React, TypeScript,
+          NestJS, GraphQL.
+        </p>
+        <a className="contact-email" href={`mailto:${site.email}`}>
+          {site.email}
+        </a>
+        <div className="contact-links">
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+            <span className="arrow" aria-hidden="true">
+              {" "}
+              ↗
+            </span>
+          </a>
+          <a href={site.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+            <span className="arrow" aria-hidden="true">
+              {" "}
+              ↗
+            </span>
+          </a>
+        </div>
       </div>
     </section>
   );
