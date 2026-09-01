@@ -6,7 +6,6 @@ export default function Hero() {
       <div className="hero-mesh" aria-hidden="true">
         <span className="orb orb-develop" />
         <span className="orb orb-preview" />
-        <span className="orb orb-ship" />
       </div>
       <div className="wrap hero-inner">
         <h1 className="hero-name">

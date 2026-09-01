@@ -109,20 +109,16 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 1px;
   z-index: 80;
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    transparent 0%,
-    var(--develop) 18%,
-    #00dfd8 36%,
-    var(--preview) 52%,
-    #ff0080 68%,
-    #f9cb28 84%,
-    transparent 100%
+    transparent 8%,
+    rgba(0, 124, 240, 0.55) 36%,
+    rgba(121, 40, 202, 0.4) 64%,
+    transparent 92%
   );
-  opacity: 1;
 }
 
 .wrap {
@@ -273,67 +269,24 @@ a {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(72px);
-  opacity: 0.38;
-  mix-blend-mode: screen;
+  filter: blur(90px);
+  pointer-events: none;
 }
 
 .orb-develop {
-  width: min(52vw, 520px);
-  height: min(52vw, 520px);
-  background: radial-gradient(circle, #007cf0 0%, #00dfd8 70%, transparent 72%);
-  top: -8%;
-  left: 6%;
-  animation: drift-a 18s ease-in-out infinite;
+  width: min(56vw, 560px);
+  height: min(56vw, 560px);
+  background: rgba(0, 124, 240, 0.16);
+  top: -12%;
+  left: 18%;
 }
 
 .orb-preview {
-  width: min(46vw, 460px);
-  height: min(46vw, 460px);
-  background: radial-gradient(circle, #7928ca 0%, #ff0080 68%, transparent 72%);
-  top: 8%;
-  right: 2%;
-  animation: drift-b 22s ease-in-out infinite;
-}
-
-.orb-ship {
-  width: min(38vw, 380px);
-  height: min(38vw, 380px);
-  background: radial-gradient(circle, #ff4d4d 0%, #f9cb28 68%, transparent 72%);
-  bottom: 4%;
-  left: 38%;
-  opacity: 0.22;
-  animation: drift-c 26s ease-in-out infinite;
-}
-
-@keyframes drift-a {
-  0%,
-  100% {
-    transform: translate(-6%, -4%);
-  }
-  50% {
-    transform: translate(8%, 6%);
-  }
-}
-
-@keyframes drift-b {
-  0%,
-  100% {
-    transform: translate(4%, 2%);
-  }
-  50% {
-    transform: translate(-10%, 8%);
-  }
-}
-
-@keyframes drift-c {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-6%, -8%);
-  }
+  width: min(42vw, 420px);
+  height: min(42vw, 420px);
+  background: rgba(121, 40, 202, 0.1);
+  top: 18%;
+  right: 8%;
 }
 
 .hero-inner {
@@ -366,10 +319,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.06em;
-  background: linear-gradient(180deg, #ffffff 28%, #c9d6ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #fff;
   animation: rise 0.85s ease both;
 }
 
@@ -831,14 +781,9 @@ a:hover .arrow,
 
 /* ── Reveal ── */
 
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  transition-delay: var(--reveal-delay, 0ms);
-}
+/* ── Reveal (content stays visible; .in is optional polish) ── */
 
-[data-reveal].in {
+[data-reveal] {
   opacity: 1;
   transform: none;
 }
@@ -892,9 +837,8 @@ a:hover .arrow,
     letter-spacing: 0.1em;
   }
 
-  .orb {
-    opacity: 0.28;
-    filter: blur(64px);
+  .orb-develop {
+    opacity: 0.85;
   }
 
   .card {
@@ -926,7 +870,6 @@ a:hover .arrow,
   .hero-stack,
   .hero-lead,
   .hero-cta,
-  .orb,
   .status-dot,
   .btn::after {
     animation: none !important;
