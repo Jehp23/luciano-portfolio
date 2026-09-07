@@ -1,60 +1,44 @@
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { JetBrains_Mono, Manrope, VT323 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { site } from "@/lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const vt323 = VT323({
+  variable: "--font-vt323",
   subsets: ["latin"],
-  display: "swap",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: site.title,
-    template: `%s · ${site.name}`,
-  },
-  description: site.description,
-  applicationName: site.name,
-  authors: [{ name: site.name, url: site.url }],
-  creator: site.name,
-  alternates: {
-    canonical: site.url,
-  },
+  title: "Luciano Lazarte · Full Stack Developer",
+  description:
+    "Full Stack Developer. React, TypeScript, NestJS, GraphQL. Producto fintech. Salta, Argentina. Abierto a roles full-remote.",
   openGraph: {
-    title: site.title,
-    description: site.description,
-    url: site.url,
-    siteName: site.name,
-    locale: "en_US",
+    title: "Luciano Lazarte · Full Stack Developer",
+    description:
+      "Full Stack Developer. React, TypeScript, NestJS, GraphQL. Producto fintech. Salta, Argentina. Abierto a roles full-remote.",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: site.title,
-    description: site.description,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
-
-export const viewport: Viewport = {
-  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html
+      lang="es"
+      className={`${manrope.variable} ${jetbrainsMono.variable} ${vt323.variable}`}
+    >
       <body>
         {children}
         <Analytics />

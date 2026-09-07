@@ -1,31 +1,27 @@
 "use client";
 
 import { useEffect } from "react";
+import { useI18n } from "@/components/LocaleProvider";
 
 export default function RevealObserver() {
+  const { locale } = useI18n();
+
   useEffect(() => {
-    const nodes = document.querySelectorAll<HTMLElement>("[data-reveal]");
-    if (!nodes.length) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      nodes.forEach((el) => el.classList.add("in"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("in");
-          observer.unobserve(entry.target);
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            obs.unobserve(e.target);
+          }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.08 }
     );
 
-    nodes.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+    document.querySelectorAll(".reveal:not(.in)").forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, [locale]);
 
   return null;
 }

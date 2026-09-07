@@ -1,36 +1,31 @@
+"use client";
+
+import { useI18n } from "@/components/LocaleProvider";
 import { site } from "@/lib/site";
 
 export default function Contact() {
+  const { t } = useI18n();
+
   return (
-    <section className="section" id="contact">
-      <div className="wrap">
-        <div className="section-head">
-          <h2>Contact</h2>
-        </div>
-        <div className="contact-body" data-reveal>
-          <p className="contact-copy">
-            Open to full-remote roles. Fintech product — React, TypeScript,
-            NestJS, GraphQL.
-          </p>
-          <a className="contact-email" href={`mailto:${site.email}`}>
-            {site.email}
+    <section className="contact" id="contact" aria-labelledby="contact-title">
+      <div className="contact-inner">
+        <p className="contact-eyebrow">{t.contact.eyebrow}</p>
+        <h2 id="contact-title">{t.contact.title}</h2>
+        <p className="desc">{t.contact.body}</p>
+        <div className="ctas">
+          <a className="btn" href={`mailto:${site.email}`}>
+            EMAIL
           </a>
-          <div className="contact-links">
-            <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
-              LinkedIn
-              <span className="arrow" aria-hidden="true">
-                {" "}
-                ↗
-              </span>
-            </a>
-            <a href={site.github} target="_blank" rel="noopener noreferrer">
-              GitHub
-              <span className="arrow" aria-hidden="true">
-                {" "}
-                ↗
-              </span>
-            </a>
-          </div>
+          <a className="btn alt" href={site.github} target="_blank" rel="noopener noreferrer">
+            GITHUB
+          </a>
+          <a className="btn" href={site.linkedin} target="_blank" rel="noopener noreferrer">
+            LINKEDIN
+          </a>
+        </div>
+        <div className="contact-status">
+          <span aria-hidden="true" />
+          {t.contact.blink}
         </div>
       </div>
     </section>
